@@ -1,15 +1,29 @@
+.button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
 .menu{
   flex-direction: column;
   display: inline-flex;
   border-collapse:separate;
- /* border:solid red 3px;*/
   border-radius:10px;
   -moz-border-radius:10px;
   align-content: normal;
   justify-content: flex-start;
- width: auto;
+  width: auto;
   font-family: Consolas;
 }
+
 th{
   border-left:orangered 1px;
   border-top:orangered 1px;
@@ -24,12 +38,15 @@ tr{
   background-color: antiquewhite;
   width: auto;
 }
-.btn{
+
+td {
+  border-left:orangered 1px;
+  border-top:orangered 1px;
   background-color: antiquewhite;
-  width: 50px;
+  width: auto;
 }
 
-.menuTable{
+.descriptionTable {
   flex-direction: column;
   display: inline-flex;
   border-collapse:separate;
@@ -40,23 +57,4 @@ tr{
   justify-content: flex-start;
   width: auto;
   font-family: Consolas;
-}
-.basket{
-  float: left;
-  width: 20%;
-  display: inline-flex;
-}
-
-.add,.detail,.dishButton {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 15px;
 }

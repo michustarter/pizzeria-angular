@@ -21,7 +21,7 @@
       "name": "Kebeb w bułce",
       "isAvailable": true,
       "description": "Chrupiąca bułka z dodatkiem kebabu drobiowego, kapusty pekińskiej, pomidora, ogórka zielonego",
-      "type": "fastfood",
+      "type": "pizza",
       "price": "13.90"
     },
     {
@@ -39,12 +39,55 @@
       "description": "Sos boloński z szynką i kukurydzą",
       "type": "spagetti",
       "price": "17.50"
+    },
+    {
+      "id": 6,
+      "name": "Tymbark",
+      "isAvailable": true,
+      "description": "Sok owocowy",
+      "type": "drink",
+      "price": "7.50"
+    },
+    {
+      "price": 20,
+      "description": "pomidor, ser, salata, ogórek",
+      "isAvailable": true,
+      "name": "pizza-salatka",
+      "type": "pizza",
+      "id": 7
+    },
+    {
+      "price": 20,
+      "description": "pomidor, ser, salata, ogórek",
+      "isAvailable": true,
+      "name": "pizza-salatka",
+      "type": "pizza",
+      "id": 8
+    },
+    {
+      "price": 20,
+      "description": "pomidor, ser, salata, ogórek",
+      "isAvailable": true,
+      "name": "pizza-salatka",
+      "type": "pizza",
+      "id": 9
+    },
+    {
+      "price": 20,
+      "description": "pomidor, ser, salata, ogórek",
+      "isAvailable": true,
+      "name": "pizza-salatka",
+      "type": "pizza",
+      "id": 10
     }
   ],
   "orders": [
     {
       "id": 1,
-      "dishIds": [1, 5]
+      "dishIds": [
+        1,
+        5
+      ]
     }
   ],
   "users": [

@@ -1,6 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <router-outlet></router-outlet>
+<body>
+<div style="text-align: center">
+
+  <h1>Pizzeria Angular</h1>
+  <img routerLink="basket" src="../assets/shopping-cart.jpg" height="50" width="50" align="right">
+</div>
+<div style="text-align: left">
+  <br>
+  <button type="button" class="button" (click)="goToMenu()">
+    -> Go to the menu
+  </button>
+</div>
+
+<router-outlet></router-outlet>
+</body>
