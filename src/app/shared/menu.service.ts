@@ -10,11 +10,12 @@ export class MenuService {
 
   dishes$ = new Subject<Dish[]>();
 
+
   constructor(readonly httpClient: HttpClient) {
   }
 
   getDishes() {
-    this.httpClient.get<Dish[]>('http://localhost:3000/dishes').subscribe(dishes => this.dishes$.next(dishes));
+    return this.httpClient.get<Dish[]>('http://localhost:3000/dishes').subscribe(dishes => this.dishes$.next(dishes));
   }
 
   getDish(id: number): Observable<Dish> {
@@ -33,12 +34,11 @@ export class MenuService {
     this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=drink').subscribe(dishes => this.dishes$.next(dishes));
   }
 
-  addDish(dish: Dish) {
-    this.httpClient.post('http://localhost:3000/dishes', dish).subscribe(res => this.getDishes());
+  setAvailability(dish: Dish) {
+    dish.isAvailable = !dish.isAvailable;
+    this.httpClient.put<Dish>('http://localhost:3000/dishes/' + dish.id, dish)
+      .subscribe(res => this.getDishes());
   }
 
-  deleteDish(dish: Dish) {
-   // this.httpClient.delete('http://localhost:3000/dishes', ).subscribe(res => this.getDishes());
-   // this.httpClient.delete()
-  }
+
 }

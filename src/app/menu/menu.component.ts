@@ -12,13 +12,14 @@ import {BasketService} from '../shared/basket.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
-  @Output() pizza = new EventEmitter<Dish>();
+
   private destroy$: Subject<void> = new Subject<void>();
   dishes: Dish[];
   basket: Dish[];
+  availability: string;
 
   constructor(public readonly menuService: MenuService,
-              private readonly orderService: BasketService,
+              private readonly basketService: BasketService,
               private router: Router) {
   }
 
@@ -59,14 +60,8 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getDrinks();
   }
 
-  addToBasket(event: Event) {
-    const id = event.srcElement.getAttribute('id');
-    this.menuService.getDish(Number(id.substr(3))).subscribe(dish => this.basket.push(dish));
-  }
-
-  removeFromBasket(event: Event) {
-    const id = event.srcElement.getAttribute('id');
-    this.menuService.getDish(Number(id.substr(3))).subscribe(dish => this.basket.push(dish));
+  addToBasket(dish: Dish) {
+    this.basketService.addDishToBasket(dish);
   }
 
   showDetail(dishId: number) {
@@ -74,12 +69,17 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   }
 
-  addDish(event: Event) {
-    const dish: Dish = {
-      price: 20, description: 'pomidor, ser, salata, ogórek',
-      isAvailable: true, name: 'pizza-salatka', type: 'pizza'
-    };
-    this.menuService.addDish(dish);
+  setAvailability(dish: Dish) {
+    this.menuService.setAvailability(dish);
+  }
+
+  getAvailability(dish: Dish): string {
+    if (dish.isAvailable) {
+      this.availability = 'available';
+    } else if (!dish.isAvailable) {
+      this.availability = 'unavailable';
+    }
+    return this.availability;
   }
 
   ngOnDestroy(): void {

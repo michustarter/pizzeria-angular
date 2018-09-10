@@ -1,44 +1,43 @@
 <section class="menu-section">
   <div>
-<button class="dishButton" type="button" (click)="getPizza($event)">Pizza</button>
-<button class="dishButton" type="button" (click)="getPasta($event)">Pasta</button>
-<button class="dishButton" type="button" (click)="getDrinks($event)">Drinks</button>
-<button class="dishButton" type="button" (click)="addDish($event)">Add dish</button>
+    <button class="dishButton" type="button" (click)="getPizza($event)">Pizza</button>
+    <button class="dishButton" type="button" (click)="getPasta($event)">Pasta</button>
+    <button class="dishButton" type="button" (click)="getDrinks($event)">Drinks</button>
+    <br>
+    <button class="dishButton" type="button" routerLink="/order">Your order</button>
+    --przycisk do listy zamowien zrobic !!! tutaj , na razie bez rozrozniania czy to admin czy nie...
   </div>
-  <div class="basket"></div>
   <section>
-  <app-basket [basket]="basket"></app-basket>
 
+  </section>
+  <div class="menuTable">
+    <table class="menu">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Add to basket</th>
+        <th>Description</th>
+        <th>Availability</th>
 
-</section>
-<section>
+      </tr>
+      <tr *ngFor="let dish of dishes">
+        <td>{{dish.id}}</td>
+        <td>{{dish.name}}</td>
+        <td>{{dish.type}}</td>
+        <td>{{dish.price}}</td>
 
-</section>
-<div class="menuTable">
-  <table class="menu">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Price</th>
-      <th>Add</th>
-      <th>Description</th>
-
-    </tr>
-    <tr *ngFor="let dish of dishes">
-      <!--<tr *ngFor="let dish of menuService.dishes$ | async " >-->
-      <td>{{dish.id}}</td>
-      <td>{{dish.name}}</td>
-      <td>{{dish.type}}</td>
-      <td>{{dish.price}}</td>
-      <td class="btn">
-        <button [id]="'add' + dish.id" class="add" (click)="addToBasket($event)">Add</button>
-      </td>
-      <td class="btn">
-        <button [id]="'detail' + dish.id" class="detail" (click)="showDetail(dish.id)">Description</button>
-      </td>
-    </tr>
-  </table>
-</div>
+        <td class="btn">
+          <button [id]="'add' + dish.id" class="add" (click)="addToBasket(dish)">+</button>
+        </td>
+        <td class="btn">
+          <button [id]="'detail' + dish.id" class="detail" (click)="showDetail(dish.id)">Description</button>
+        </td>
+        <td>{{getAvailability(dish)}} <a class="btn"></a>
+          <button [id]="'availability' + dish.id" class="availability" (click)="setAvailability(dish)">Set</button>
+      </tr>
+    </table>
+  </div>
 
 </section>

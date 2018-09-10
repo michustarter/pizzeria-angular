@@ -1,24 +1,26 @@
+<br>
+<table class="price">
+  <tr>Total price: {{countPrice()}}</tr>
+</table>
+<br>
+
 <table class="basket">
   <tr>
-    <th>Id</th>
     <th>Name</th>
     <th>Type</th>
     <th>Description</th>
     <th>Price</th>
+    <th>Remove dish</th>
   </tr>
 
   <tr *ngFor="let dish of basket">
-    <td>{{dish.id}}</td>
     <td>{{dish.name}}</td>
     <td>{{dish.type}}</td>
     <td>{{dish.description}}</td>
     <td>{{dish.price}}</td>
     <td class="btn">
-      <button class="button" [routerLink]="['menu-list', dish.id]">
-        <button href="#" (click)="removeFromBasket($event)" class="delete">X</button>
-      </button>
-
+      <button class="button" (click)="removeDish(basket.indexOf(dish),$event)">X</button>
     </td>
   </tr>
-
 </table>
+<br>
