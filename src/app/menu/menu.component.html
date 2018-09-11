@@ -5,7 +5,7 @@
     <button class="dishButton" type="button" (click)="getDrinks($event)">Drinks</button>
     <br>
     <button class="dishButton" type="button" routerLink="/order">Your order</button>
-    --przycisk do listy zamowien zrobic !!! tutaj , na razie bez rozrozniania czy to admin czy nie...
+    <button class="dishButton" type="button" routerLink="/orders">Orders list</button>
   </div>
   <section>
 
@@ -29,10 +29,10 @@
         <td>{{dish.price}}</td>
 
         <td class="btn">
-          <button [id]="'add' + dish.id" class="add" (click)="addToBasket(dish)">+</button>
+          <button [id]="'add' + dish.id" class="add" (click)="addToBasket(dish)">✚</button>
         </td>
         <td class="btn">
-          <button [id]="'detail' + dish.id" class="detail" (click)="showDetail(dish.id)">Description</button>
+          <button [id]="'detail' + dish.id" class="detail" (click)="showDetail(dish.id)">ⓘ</button>
         </td>
         <td>{{getAvailability(dish)}} <a class="btn"></a>
           <button [id]="'availability' + dish.id" class="availability" (click)="setAvailability(dish)">Set</button>

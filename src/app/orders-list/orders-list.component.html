@@ -1,3 +1,33 @@
-<p>
-  orders-list works!
-</p>
+<div class="orders-listMenu">
+  <table class="orders-list">
+    <tr>
+      <th>Order id</th>
+      <th>Dishes Ids</th>
+      <th>City</th>
+      <th>Date</th>
+      <th>Current stage</th>
+    </tr>
+    <tr *ngIf="order">
+      <td>{{order.id}}</td>
+      <td>{{order.dishIds}}</td>
+      <td>{{order.city}}</td>
+      <td>{{order.date | date:'MM-dd-yyyy hh:mm a'}}</td>
+      <td>{{getOrderStage(order)}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="stageMenu" *ngIf="order">
+  <button [id]="'orderStage' + order.id" class="orderStage" (click)="setAsAccepted(order)">Accepted</button>
+  <button [id]="'orderStage' + order.id" class="orderStage" (click)="setAsInRealization(order)">In realization</button>
+  <button [id]="'orderStage' + order.id" class="orderStage" (click)="setAsSent(order)">Sent</button>
+  <button [id]="'orderStage' + order.id" class="orderStage" (click)="setAsDelivered(order)">Delivered</button>
+  <br>
+  <br>
+
+  <button class="orderStage" type="button" routerLink="/orders">Back to orders</button>
+</div>
+
+
+
+

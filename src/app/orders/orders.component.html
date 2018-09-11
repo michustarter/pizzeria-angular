@@ -1,3 +1,23 @@
-<p>
-  orders works!
-</p>
+
+<section>
+  <div class="ordersMenu">
+    <table class="orders">
+      <tr>
+        <th>Order id</th>
+        <th>Street</th>
+        <th>Date</th>
+        <th>Dishes Ids</th>
+        <th>Show details</th>
+      </tr>
+      <tr *ngFor="let order of orders">
+        <td>{{order.id}}</td>
+        <td>{{order.street}}</td>
+        <td>{{order.date | date:'MM-dd-yyyy hh:mm a'}}</td>
+        <td>{{order.dishIds}}</td>
+        <td class="btn">
+          <button [routerLink]="['/orders', order.id]" class="detail">ⓘ</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

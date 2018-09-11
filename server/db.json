@@ -43,68 +43,162 @@
     {
       "id": 6,
       "name": "Tymbark",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Sok owocowy",
       "type": "drink",
       "price": "7.50"
+    },
+    {
+      "id": 7,
+      "name": "Koka kola",
+      "isAvailable": false,
+      "description": "Kwas fosforowy",
+      "type": "drink",
+      "price": "5.50"
     }
   ],
   "orders": [
     {
-      "id": 1,
       "dishIds": [
         1,
+        2
+      ],
+      "firstName": "dd",
+      "lastName": "dd",
+      "city": "dd",
+      "street": "dd",
+      "local": "dd",
+      "floor": "dd",
+      "mail": "dd",
+      "phoneNumber": "dd",
+      "orderStage": "sent",
+      "date": "2018-09-10T19:23:44.796Z",
+      "id": 5
+    },
+    {
+      "dishIds": [
+        1,
+        2
+      ],
+      "firstName": "dd",
+      "lastName": "dd",
+      "city": "dd",
+      "street": "dd",
+      "local": "dd",
+      "floor": "dd",
+      "mail": "dd",
+      "phoneNumber": "dd",
+      "orderStage": "delivered",
+      "date": "2018-09-10T19:23:46.017Z",
+      "id": 6
+    },
+    {
+      "dishIds": [
+        1,
+        2
+      ],
+      "firstName": "dd",
+      "lastName": "dd",
+      "city": "dd",
+      "street": "dd",
+      "local": "dd",
+      "floor": "dd",
+      "mail": "dd",
+      "phoneNumber": "dd",
+      "orderStage": "delivered",
+      "date": "2018-09-10T19:23:46.148Z",
+      "id": 7
+    },
+    {
+      "dishIds": [
+        1,
+        2,
+        3
+      ],
+      "firstName": "aaa",
+      "lastName": "aa",
+      "city": "aa",
+      "street": "aa",
+      "local": "aa",
+      "floor": "aa",
+      "mail": "aa",
+      "phoneNumber": "aaa",
+      "orderStage": "received",
+      "date": "2018-09-10T20:20:38.184Z",
+      "id": 8
+    },
+    {
+      "dishIds": [
+        1,
+        2,
+        3
+      ],
+      "firstName": "aaa",
+      "lastName": "aa",
+      "city": "aa",
+      "street": "aa",
+      "local": "aa",
+      "floor": "aa",
+      "mail": "aa",
+      "phoneNumber": "aaa",
+      "orderStage": "received",
+      "date": "2018-09-10T20:20:39.482Z",
+      "id": 9
+    },
+    {
+      "dishIds": [
+        1,
+        2,
+        3
+      ],
+      "firstName": "aaa",
+      "lastName": "aa",
+      "city": "aa",
+      "street": "aa",
+      "local": "aa",
+      "floor": "aa",
+      "mail": "aa",
+      "phoneNumber": "aaa",
+      "orderStage": "received",
+      "date": "2018-09-10T20:20:39.630Z",
+      "id": 10
+    },
+    {
+      "dishIds": [
+        1,
+        2,
+        3,
+        4,
         5
-      ]
-    },
-    {
-      "dishIds": [],
-      "firstName": null,
-      "lastName": null,
-      "city": null,
-      "street": null,
-      "local": null,
-      "floor": null,
-      "mail": null,
-      "phoneNumber": null,
+      ],
+      "firstName": "AAA",
+      "lastName": "hgtfd",
+      "city": "fff",
+      "street": "gfd",
+      "local": "yhgfds",
+      "floor": "gfd",
+      "mail": "gfds",
+      "phoneNumber": "fff",
       "orderStage": "received",
-      "date": "2018-09-10T09:45:29.148Z",
-      "id": 2
+      "date": "2018-09-11T11:25:36.124Z",
+      "id": 11
     },
     {
       "dishIds": [
         1,
-        5,
-        4
+        2
       ],
-      "firstName": null,
-      "lastName": null,
-      "city": null,
-      "street": null,
-      "local": null,
-      "floor": null,
-      "mail": null,
-      "phoneNumber": null,
+      "firstName": "QQQ",
+      "lastName": "QQ",
+      "city": "QQ",
+      "street": "QQ",
+      "local": "QQ",
+      "floor": "QQ",
+      "mail": "QQ",
+      "phoneNumber": "QQ",
       "orderStage": "received",
-      "date": "2018-09-10T11:25:57.203Z",
-      "id": 3
-    },
-    {
-      "dishIds": [
-        5,
-        4
-      ],
-      "firstName": null,
-      "lastName": null,
-      "city": null,
-      "street": null,
-      "local": null,
-      "floor": null,
-      "mail": null,
-      "phoneNumber": null,
-      "orderStage": "received",
-      "date": "2018-09-10T11:27:42.272Z",
-      "id": 4
+      "date": "2018-09-11T14:39:16.101Z",
+      "id": 12
     }
   ],
   "users": [

@@ -6,10 +6,12 @@
       <td>Price</td>
       <td>Availability</td>
     </tr>
-    <td>{{dish.name}}</td>
-    <td>{{dish.description}}</td>
-    <td>{{dish.price}}</td>
-    <td>{{dish.isAvailable}}</td>
+    <tr *ngIf="dish">
+      <td>{{dish.name}}</td>
+      <td>{{dish.description}}</td>
+      <td>{{dish.price}}</td>
+      <td>{{dish.isAvailable}}</td>
+    </tr>
 
   </table>
 </div>

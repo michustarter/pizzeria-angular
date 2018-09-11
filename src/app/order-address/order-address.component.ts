@@ -18,7 +18,7 @@ export class OrderAddressComponent implements OnInit {
   dishes: Dish[];
   dishesIds: number[];
 
-  angularForm = new FormGroup({
+  orderAddressForm = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
     phoneNumber: new FormControl(),
@@ -41,14 +41,14 @@ export class OrderAddressComponent implements OnInit {
 
   submitOrder(): void {
     this.orderedBasket.dishIds = this.dishesIds;
-    this.orderedBasket.firstName = this.angularForm.get('firstName').value;
-    this.orderedBasket.lastName = this.angularForm.get('lastName').value;
-    this.orderedBasket.city = this.angularForm.get('city').value;
-    this.orderedBasket.street = this.angularForm.get('street').value;
-    this.orderedBasket.local = this.angularForm.get('local').value;
-    this.orderedBasket.floor = this.angularForm.get('floor').value;
-    this.orderedBasket.mail = this.angularForm.get('mail').value;
-    this.orderedBasket.phoneNumber = this.angularForm.get('phoneNumber').value;
+    this.orderedBasket.firstName = this.orderAddressForm.get('firstName').value;
+    this.orderedBasket.lastName = this.orderAddressForm.get('lastName').value;
+    this.orderedBasket.city = this.orderAddressForm.get('city').value;
+    this.orderedBasket.street = this.orderAddressForm.get('street').value;
+    this.orderedBasket.local = this.orderAddressForm.get('local').value;
+    this.orderedBasket.floor = this.orderAddressForm.get('floor').value;
+    this.orderedBasket.mail = this.orderAddressForm.get('mail').value;
+    this.orderedBasket.phoneNumber = this.orderAddressForm.get('phoneNumber').value;
     this.orderedBasket.orderStage = 'received';
     this.orderedBasket.date = new Date();
     this.sub = this.basketService.submitOrder(this.orderedBasket).subscribe();

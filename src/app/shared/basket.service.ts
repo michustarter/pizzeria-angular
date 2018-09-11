@@ -13,8 +13,11 @@ export class BasketService {
 
   totalPrice: number;
   basket: Dish[];
+  order: OrderData;
 
-  constructor(private readonly httpClient: HttpClient, private  router: Router, private readonly menuService: MenuService) {
+  constructor(private readonly httpClient: HttpClient,
+              private  router: Router,
+              private readonly menuService: MenuService) {
     this.totalPrice = 0;
     this.basket = [];
   }
@@ -44,5 +47,31 @@ export class BasketService {
     return this.httpClient.post<OrderData>('http://localhost:3000/orders', orderedBasket);
   }
 
+  getOrder(id: number): Observable<OrderData> {
+    return this.httpClient.get<OrderData>(`http://localhost:3000/orders/${id}`);
+  }
 
+  getOrders(): Observable<OrderData[]> {
+    return this.httpClient.get <OrderData[]>('http://localhost:3000/orders');
+  }
+
+  setAsAccepted(order: OrderData) {
+    order.orderStage = 'accepted';
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+  }
+
+  setAsInRealization(order: OrderData) {
+    order.orderStage = 'in realization';
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+  }
+
+  setAsSent(order: OrderData) {
+    order.orderStage = 'sent';
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+  }
+
+  setAsDelivered(order: OrderData) {
+    order.orderStage = 'delivered';
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+  }
 }
