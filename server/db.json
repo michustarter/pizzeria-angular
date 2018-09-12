@@ -11,7 +11,7 @@
     {
       "id": 2,
       "name": "Pizza Funghi",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Sos, ser, pieczarki",
       "type": "pizza",
       "price": "23.50"
@@ -19,7 +19,7 @@
     {
       "id": 3,
       "name": "Kebeb w bułce",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Chrupiąca bułka z dodatkiem kebabu drobiowego, kapusty pekińskiej, pomidora, ogórka zielonego",
       "type": "pizza",
       "price": "13.90"
@@ -51,7 +51,7 @@
     {
       "id": 7,
       "name": "Koka kola",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Kwas fosforowy",
       "type": "drink",
       "price": "5.50"
@@ -199,6 +199,111 @@
       "orderStage": "received",
       "date": "2018-09-11T14:39:16.101Z",
       "id": 12
+    },
+    {
+      "dishIds": [
+        4,
+        4,
+        7
+      ],
+      "firstName": "BB",
+      "lastName": "FF",
+      "city": "dfgbvc",
+      "street": "dfbvc",
+      "local": "12",
+      "floor": "32",
+      "mail": "gggg",
+      "phoneNumber": "ddd",
+      "orderStage": "accepted",
+      "date": "2018-09-12T06:45:38.156Z",
+      "id": 13
+    },
+    {
+      "dishIds": [
+        4,
+        4,
+        7
+      ],
+      "firstName": "BB",
+      "lastName": "FF",
+      "city": "dfgbvc",
+      "street": "dfbvc",
+      "local": "12",
+      "floor": "32",
+      "mail": "gggg",
+      "phoneNumber": "ddd",
+      "orderStage": "accepted",
+      "date": "2018-09-12T06:45:39.197Z",
+      "id": 14
+    },
+    {
+      "dishIds": [
+        4,
+        4,
+        7
+      ],
+      "firstName": "BB",
+      "lastName": "FF",
+      "city": "dfgbvc",
+      "street": "dfbvc",
+      "local": "12",
+      "floor": "32",
+      "mail": "gggg",
+      "phoneNumber": "ddd",
+      "orderStage": "accepted",
+      "date": "2018-09-12T06:45:39.309Z",
+      "id": 15
+    },
+    {
+      "dishIds": [
+        4,
+        4,
+        7
+      ],
+      "firstName": "BB",
+      "lastName": "FF",
+      "city": "dfgbvc",
+      "street": "dfbvc",
+      "local": "12",
+      "floor": "32",
+      "mail": "gggg",
+      "phoneNumber": "ddd",
+      "orderStage": "accepted",
+      "date": "2018-09-12T06:45:39.545Z",
+      "id": 16
+    },
+    {
+      "dishIds": [
+        7
+      ],
+      "firstName": null,
+      "lastName": null,
+      "city": null,
+      "street": null,
+      "local": null,
+      "floor": null,
+      "mail": null,
+      "phoneNumber": null,
+      "orderStage": "received",
+      "date": "2018-09-12T06:47:15.285Z",
+      "id": 17
+    },
+    {
+      "dishIds": [
+        1,
+        4
+      ],
+      "firstName": "AAA",
+      "lastName": "aa",
+      "city": "aa",
+      "street": "aa",
+      "local": "aa",
+      "floor": "aa",
+      "mail": "aa",
+      "phoneNumber": "aa",
+      "orderStage": "received",
+      "date": "2018-09-12T12:12:18.498Z",
+      "id": 18
     }
   ],
   "users": [

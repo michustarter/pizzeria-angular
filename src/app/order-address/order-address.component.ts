@@ -52,6 +52,7 @@ export class OrderAddressComponent implements OnInit {
     this.orderedBasket.orderStage = 'received';
     this.orderedBasket.date = new Date();
     this.sub = this.basketService.submitOrder(this.orderedBasket).subscribe();
+    alert('Order accepted');
   }
 }
 

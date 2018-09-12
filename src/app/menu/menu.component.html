@@ -4,8 +4,8 @@
     <button class="dishButton" type="button" (click)="getPasta($event)">Pasta</button>
     <button class="dishButton" type="button" (click)="getDrinks($event)">Drinks</button>
     <br>
-    <button class="dishButton" type="button" routerLink="/order">Your order</button>
-    <button class="dishButton" type="button" routerLink="/orders">Orders list</button>
+    <button class="dishButton" *ngIf="!isLoggedIn()" type="button" routerLink="/order">Order summary</button>
+    <button class="dishButton" *ngIf="isLoggedIn()" type="button" routerLink="/orders">Orders list</button>
   </div>
   <section>
 
@@ -17,25 +17,26 @@
         <th>Name</th>
         <th>Type</th>
         <th>Price</th>
-        <th>Add to basket</th>
-        <th>Description</th>
-        <th>Availability</th>
-
+        <th *ngIf="!isLoggedIn()">Add to basket</th>
+        <th *ngIf="isLoggedIn()">Description</th>
+        <th *ngIf="isLoggedIn()">Availability</th>
+        <!--*ngIf="isLoggedIn()"-->
       </tr>
       <tr *ngFor="let dish of dishes">
-        <td>{{dish.id}}</td>
-        <td>{{dish.name}}</td>
-        <td>{{dish.type}}</td>
-        <td>{{dish.price}}</td>
+        <td *ngIf="isLoggedIn() || (!isLoggedIn() && dish.isAvailable)">{{dish.id}}</td>
+        <td *ngIf="isLoggedIn() || (!isLoggedIn() && dish.isAvailable)">{{dish.name}}</td>
+        <td *ngIf="isLoggedIn() || (!isLoggedIn() && dish.isAvailable)">{{dish.type}}</td>
+        <td *ngIf="isLoggedIn() || (!isLoggedIn() && dish.isAvailable)">{{dish.price}}</td>
 
-        <td class="btn">
+        <td class="btn" *ngIf="!isLoggedIn() && dish.isAvailable">
           <button [id]="'add' + dish.id" class="add" (click)="addToBasket(dish)">✚</button>
         </td>
-        <td class="btn">
+        <td class="btn" *ngIf="isLoggedIn()">
           <button [id]="'detail' + dish.id" class="detail" (click)="showDetail(dish.id)">ⓘ</button>
         </td>
-        <td>{{getAvailability(dish)}} <a class="btn"></a>
+        <td class="btn" *ngIf="isLoggedIn()"> {{getAvailability(dish)}}
           <button [id]="'availability' + dish.id" class="availability" (click)="setAvailability(dish)">Set</button>
+        </td>
       </tr>
     </table>
   </div>

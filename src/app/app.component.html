@@ -2,7 +2,12 @@
 <div style="text-align: center">
 
   <h1>Pizzeria Angular</h1>
-  <img routerLink="basket" src="../assets/shopping-cart.jpg" height="50" width="50" align="right">
+  <div>
+  <img routerLink="/login" src="../assets/login.jpg" *ngIf="!isLoggedIn()" height="37.728" width="135.936" align="right">
+  <img routerLink="/" src="../assets/logout.jpg" *ngIf="isLoggedIn()" (click)="logOut()" height="38.042" width="138.234" align="right">
+  <br><br><br>
+  </div>
+  <img routerLink="basket" src="../assets/shopping-cart.jpg" *ngIf="!isLoggedIn()" height="80" width="80" align="right">
 </div>
 <div style="text-align: left">
   <br>
@@ -10,6 +15,5 @@
     -> Go to the menu
   </button>
 </div>
-
 <router-outlet></router-outlet>
 </body>

@@ -13,6 +13,9 @@ import { OrderAddressComponent } from './order-address/order-address.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { OrdersComponent } from './orders/orders.component';
+import { LoginComponent } from './login/login.component';
+import {LoginService} from "./shared/login.service";
+import {RoleGuard} from "./shared/RoleGuard";
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { OrdersComponent } from './orders/orders.component';
     OrderAddressComponent,
     OrdersListComponent,
     OrdersComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { OrdersComponent } from './orders/orders.component';
   providers: [
     MenuService,
     BasketService,
+    LoginService,
+    RoleGuard,
   ],
   bootstrap: [AppComponent]
 })

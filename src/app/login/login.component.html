@@ -1,0 +1,11 @@
+<form [formGroup]="loginAdminForm">
+  <table class="loginTable">
+    <tr>
+      <td>Nickname:</td>
+      <td><input type="text" formControlName="name"></td>
+      <td>Password:</td>
+      <td><input type="password" formControlName="password"></td>
+    </tr>
+  </table>
+  <button type="submit" class="loginButton" (click)="loginAdmin()">Login</button>
+</form>

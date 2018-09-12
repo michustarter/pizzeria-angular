@@ -5,6 +5,7 @@ import {Subject, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {BasketService} from '../shared/basket.service';
+import {LoginService} from "../shared/login.service";
 
 @Component({
   selector: 'app-menu',
@@ -18,9 +19,13 @@ export class MenuComponent implements OnInit, OnDestroy {
   basket: Dish[];
   availability: string;
 
+  logged: boolean;
+
   constructor(public readonly menuService: MenuService,
               private readonly basketService: BasketService,
+              private readonly loginService: LoginService,
               private readonly router: Router) {
+
   }
 
   ngOnInit() {
@@ -31,6 +36,8 @@ export class MenuComponent implements OnInit, OnDestroy {
     );
     this.menuService.getDishes();
     this.basket = [];
+    this.logged = this.loginService.getLoginStatus();
+
   }
 
   getPizza(event: Event) {
@@ -77,9 +84,21 @@ export class MenuComponent implements OnInit, OnDestroy {
     if (dish.isAvailable) {
       this.availability = 'available';
     } else if (!dish.isAvailable) {
-      this.availability = 'unavailable';
+      this.availability = 'temporarily unavailable';
     }
     return this.availability;
+  }
+
+  isAvailable(dish: Dish): boolean {
+    if (dish.isAvailable === true) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isLoggedIn() {
+    return this.logged;
   }
 
   ngOnDestroy(): void {
