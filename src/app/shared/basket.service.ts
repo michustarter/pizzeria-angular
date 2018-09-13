@@ -1,10 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dish} from './dish';
-import {Observable, Subject} from 'rxjs';
-import {Router} from '@angular/router';
-import {MenuService} from "./menu.service";
-import {OrderData} from "./orderData";
+import {Observable} from 'rxjs';
+import {OrderData} from './orderData';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +13,9 @@ export class BasketService {
   basket: Dish[];
   order: OrderData;
 
-  constructor(private readonly httpClient: HttpClient,
-              private  router: Router,
-              private readonly menuService: MenuService) {
+  constructor(
+    private readonly httpClient: HttpClient
+  ) {
     this.totalPrice = 0;
     this.basket = [];
   }

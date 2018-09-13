@@ -1,6 +1,5 @@
 <app-basket>
 </app-basket>
-
 <form [formGroup]="orderAddressForm" id="address-form">
   <table class="orderTable">
 
@@ -12,7 +11,7 @@
     </tr>
     <tr>
       <td>Phone number</td>
-      <td><input type="text" formControlName="phoneNumber"></td>
+      <td><input type="tel" formControlName="phoneNumber"></td>
       <td>Mail</td>
       <td><input type="text" formControlName="mail"></td>
     </tr>
@@ -26,9 +25,14 @@
       <td>Local</td>
       <td><input type="text" formControlName="local"></td>
       <td>Floor</td>
-      <td><input type="text" formControlName="floor"></td>
+      <td><input type="number" formControlName="floor"></td>
     </tr>
   </table>
+  <button class="order" type="submit" [disabled]="!orderAddressForm.valid" (click)="submitOrder()">☑ submit order
+  </button>
 </form>
 
-<button class="order" type="submit" (click)="submitOrder()">Submit order</button>
+
+
+
+

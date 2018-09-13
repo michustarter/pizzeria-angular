@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output, AfterViewChecked, OnDestroy} from '@angular/core';
 import {Dish} from '../shared/dish';
 import {MenuService} from '../shared/menu.service';
-import {Subject, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {BasketService} from '../shared/basket.service';
-import {LoginService} from "../shared/login.service";
+import {LoginService} from '../shared/login.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -21,11 +21,10 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   logged: boolean;
 
-  constructor(public readonly menuService: MenuService,
+  constructor(private readonly menuService: MenuService,
               private readonly basketService: BasketService,
               private readonly loginService: LoginService,
               private readonly router: Router) {
-
   }
 
   ngOnInit() {
@@ -89,14 +88,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     return this.availability;
   }
 
-  isAvailable(dish: Dish): boolean {
-    if (dish.isAvailable === true) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   isLoggedIn() {
     return this.logged;
   }
@@ -105,6 +96,4 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
-
 }

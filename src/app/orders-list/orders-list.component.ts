@@ -19,8 +19,7 @@ export class OrdersListComponent implements OnInit, OnDestroy {
   orderStage: string;
 
   constructor(private readonly route: ActivatedRoute,
-              private readonly basketService: BasketService,
-              private readonly menuService: MenuService) {
+              private readonly basketService: BasketService) {
     this.dishNames = [];
     this.orderStage = 'accepted';
   }

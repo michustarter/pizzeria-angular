@@ -3,7 +3,7 @@ import {MenuService} from '../shared/menu.service';
 import {BasketService} from '../shared/basket.service';
 import {Subscription} from 'rxjs';
 import {Dish} from '../shared/dish';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {OrderData} from '../shared/orderData';
 
 @Component({
@@ -17,19 +17,9 @@ export class OrderAddressComponent implements OnInit {
   orderedBasket: OrderData;
   dishes: Dish[];
   dishesIds: number[];
+  orderAddressForm: FormGroup;
 
-  orderAddressForm = new FormGroup({
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    phoneNumber: new FormControl(),
-    mail: new FormControl(),
-    city: new FormControl(),
-    street: new FormControl(),
-    local: new FormControl(),
-    floor: new FormControl(),
-  });
-
-  constructor(readonly basketService: BasketService, readonly menuService: MenuService) {
+  constructor(private readonly basketService: BasketService) {
     this.dishesIds = [];
     this.orderedBasket = <OrderData>{};
   }
@@ -37,22 +27,50 @@ export class OrderAddressComponent implements OnInit {
   ngOnInit() {
     this.dishes = this.basketService.getDishesFromBasket();
     this.dishes.forEach(dish => this.dishesIds.push(dish.id));
+
+    this.orderAddressForm = new FormGroup({
+      'firstName': new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      'lastName': new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      'phoneNumber': new FormControl('', [
+        Validators.required,
+        Validators.minLength(12),
+        Validators.maxLength(12)
+      ]),
+      'mail': new FormControl('', [
+        Validators.required,
+        Validators.minLength(7),
+      ]),
+      'city': new FormControl('', [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      'street': new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      'local': new FormControl('', [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      'floor': new FormControl('', [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+    });
   }
 
   submitOrder(): void {
+    this.orderedBasket = this.orderAddressForm.value;
     this.orderedBasket.dishIds = this.dishesIds;
-    this.orderedBasket.firstName = this.orderAddressForm.get('firstName').value;
-    this.orderedBasket.lastName = this.orderAddressForm.get('lastName').value;
-    this.orderedBasket.city = this.orderAddressForm.get('city').value;
-    this.orderedBasket.street = this.orderAddressForm.get('street').value;
-    this.orderedBasket.local = this.orderAddressForm.get('local').value;
-    this.orderedBasket.floor = this.orderAddressForm.get('floor').value;
-    this.orderedBasket.mail = this.orderAddressForm.get('mail').value;
-    this.orderedBasket.phoneNumber = this.orderAddressForm.get('phoneNumber').value;
-    this.orderedBasket.orderStage = 'received';
+    this.orderedBasket.orderStage = 'accepted';
     this.orderedBasket.date = new Date();
     this.sub = this.basketService.submitOrder(this.orderedBasket).subscribe();
     alert('Order accepted');
   }
 }
-

@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {OrdersListComponent} from './orders-list.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {BasketService} from '../shared/basket.service';
+import {HttpClientModule} from '@angular/common/http';
 
-import { OrdersListComponent } from './orders-list.component';
 
 describe('OrdersListComponent', () => {
   let component: OrdersListComponent;
@@ -8,9 +11,16 @@ describe('OrdersListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrdersListComponent ]
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      declarations: [OrdersListComponent],
+      providers: [
+        BasketService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

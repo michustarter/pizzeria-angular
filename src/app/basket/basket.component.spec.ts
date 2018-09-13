@@ -1,6 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BasketComponent } from './basket.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
+import {ActivatedRoute} from "@angular/router";
+import {BasketService} from "../shared/basket.service";
+
+class ActivatedRouteMock {
+  snapshot: {
+    paramMap: {
+      'id': 1
+    }
+  };
+}
 
 describe('BasketComponent', () => {
   let component: BasketComponent;
@@ -8,7 +20,17 @@ describe('BasketComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BasketComponent ]
+      declarations: [ BasketComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientModule
+      ],
+      providers: [
+        { provide: ActivatedRoute, useClass: ActivatedRouteMock },
+        BasketService,
+        HttpClient,
+        HttpHandler
+      ]
     })
     .compileComponents();
   }));
@@ -23,3 +45,5 @@ describe('BasketComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

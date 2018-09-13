@@ -17,7 +17,7 @@ export class BasketComponent implements OnInit {
   @Output() deletes = new EventEmitter<Dish[]>();
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private readonly basketService: BasketService, private readonly menuService: MenuService) {
+  constructor(private readonly basketService: BasketService) {
     this.price = 0;
   }
 

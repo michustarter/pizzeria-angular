@@ -35,7 +35,7 @@
           <button [id]="'detail' + dish.id" class="detail" (click)="showDetail(dish.id)">ⓘ</button>
         </td>
         <td class="btn" *ngIf="isLoggedIn()"> {{getAvailability(dish)}}
-          <button [id]="'availability' + dish.id" class="availability" (click)="setAvailability(dish)">Set</button>
+          <button [id]="'availability' + dish.id" class="availability" (click)="setAvailability(dish)">✎ change</button>
         </td>
       </tr>
     </table>
