@@ -7,16 +7,16 @@ import {OrderAddressComponent} from './orders/order-address/order-address.compon
 import {OrdersComponent} from './orders/orders.component';
 import {OrdersListComponent} from './orders/orders-list/orders-list.component';
 import {LoginComponent} from './login/login.component';
-import {RoleGuardModel} from './shared/models/RoleGuard.model';
+import {RoleGuard} from './shared/models/RoleGuard';
 
 const routes: Routes = [
   {path: 'menu', component: MenuComponent},
   {path: 'login', component: LoginComponent},
   {path: 'basket', component: BasketComponent},
   {path: 'order', component: OrderAddressComponent},
-  {path: 'menu/:id', component: MenuListComponent, canActivate: [RoleGuardModel]},
-  {path: 'orders', component: OrdersComponent, canActivate: [RoleGuardModel]},
-  {path: 'orders/:id', component: OrdersListComponent, canActivate: [RoleGuardModel]},
+  {path: 'menu/:id', component: MenuListComponent, canActivate: [RoleGuard]},
+  {path: 'orders', component: OrdersComponent, canActivate: [RoleGuard]},
+  {path: 'orders/:id', component: OrdersListComponent, canActivate: [RoleGuard]},
   {path: 'login', component: LoginComponent},
 
 ];

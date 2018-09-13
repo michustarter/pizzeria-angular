@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DishModel} from './models/dish.model';
+import {Dish} from './models/dish';
 import {Observable} from 'rxjs';
-import {OrderDataModel} from './models/orderData.model';
+import {OrderData} from './models/orderData';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ import {OrderDataModel} from './models/orderData.model';
 export class BasketService {
 
   totalPrice: number;
-  basket: DishModel[];
-  order: OrderDataModel;
+  basket: Dish[];
+  order: OrderData;
 
   constructor(
     private readonly httpClient: HttpClient
@@ -33,7 +33,7 @@ export class BasketService {
     this.countTotalPrice();
   }
 
-  addDishToBasket(dish: DishModel): void {
+  addDishToBasket(dish: Dish): void {
     this.basket.push(dish);
   }
 
@@ -41,35 +41,35 @@ export class BasketService {
     return this.basket;
   }
 
-  submitOrder(orderedBasket: OrderDataModel): Observable<OrderDataModel> {
-    return this.httpClient.post<OrderDataModel>('http://localhost:3000/orders', orderedBasket);
+  submitOrder(orderedBasket: OrderData): Observable<OrderData> {
+    return this.httpClient.post<OrderData>('http://localhost:3000/orders', orderedBasket);
   }
 
-  getOrder(id: number): Observable<OrderDataModel> {
-    return this.httpClient.get<OrderDataModel>(`http://localhost:3000/orders/${id}`);
+  getOrder(id: number): Observable<OrderData> {
+    return this.httpClient.get<OrderData>(`http://localhost:3000/orders/${id}`);
   }
 
-  getOrders(): Observable<OrderDataModel[]> {
-    return this.httpClient.get <OrderDataModel[]>('http://localhost:3000/orders');
+  getOrders(): Observable<OrderData[]> {
+    return this.httpClient.get <OrderData[]>('http://localhost:3000/orders');
   }
 
-  setAsAccepted(order: OrderDataModel) {
+  setAsAccepted(order: OrderData) {
     order.orderStage = 'accepted';
-    this.httpClient.put<OrderDataModel>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
   }
 
-  setAsInRealization(order: OrderDataModel) {
+  setAsInRealization(order: OrderData) {
     order.orderStage = 'in realization';
-    this.httpClient.put<OrderDataModel>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
   }
 
-  setAsSent(order: OrderDataModel) {
+  setAsSent(order: OrderData) {
     order.orderStage = 'sent';
-    this.httpClient.put<OrderDataModel>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
   }
 
-  setAsDelivered(order: OrderDataModel) {
+  setAsDelivered(order: OrderData) {
     order.orderStage = 'delivered';
-    this.httpClient.put<OrderDataModel>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
   }
 }

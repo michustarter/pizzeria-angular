@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {UserModel} from './models/user.model';
+import {User} from './models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class LoginService {
               private readonly route: Router) {
   }
 
-  getAdmin(): Observable<UserModel[]> {
-    return this.http.get<UserModel[]>('http://localhost:3000/users');
+  getAdmin(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:3000/users');
   }
 
   loginAdmin() {

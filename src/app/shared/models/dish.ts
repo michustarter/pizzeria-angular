@@ -1,4 +1,4 @@
-export interface DishModel {
+export interface Dish {
   id: number;
   name: string;
   isAvailable: boolean;

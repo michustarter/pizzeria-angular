@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DishModel} from '../../shared/models/dish.model';
+import {Dish} from '../../shared/models/dish';
 import {ActivatedRoute} from '@angular/router';
 import {MenuService} from '../../shared/menu.service';
 import {Subscription} from 'rxjs';
@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs';
 })
 export class MenuListComponent implements OnInit, OnDestroy {
 
-  dish: DishModel;
+  dish: Dish;
   sub: Subscription;
 
   constructor(

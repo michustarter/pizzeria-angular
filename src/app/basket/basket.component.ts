@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DishModel} from '../shared/models/dish.model';
+import {Dish} from '../shared/models/dish';
 import {BasketService} from '../shared/basket.service';
 import {Subject} from 'rxjs';
 
@@ -11,9 +11,9 @@ import {Subject} from 'rxjs';
 export class BasketComponent implements OnInit {
 
   id: number;
-  basket: DishModel[];
+  basket: Dish[];
   price: number;
-  @Output() deletes = new EventEmitter<DishModel[]>();
+  @Output() deletes = new EventEmitter<Dish[]>();
 
   constructor(private readonly basketService: BasketService) {
     this.id = 0;

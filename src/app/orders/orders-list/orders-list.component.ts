@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {OrderDataModel} from '../../shared/models/orderData.model';
+import {OrderData} from '../../shared/models/orderData';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {BasketService} from '../../shared/basket.service';
@@ -11,8 +11,8 @@ import {BasketService} from '../../shared/basket.service';
 })
 export class OrdersListComponent implements OnInit, OnDestroy {
 
-  orders: OrderDataModel[];
-  order: OrderDataModel;
+  orders: OrderData[];
+  order: OrderData;
   sub: Subscription;
   dishNames: string[];
   orderStage: string;
@@ -33,22 +33,22 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  getOrderStage(order: OrderDataModel): string {
+  getOrderStage(order: OrderData): string {
     return order.orderStage;
   }
 
-  setAsAccepted(order: OrderDataModel) {
+  setAsAccepted(order: OrderData) {
     this.basketService.setAsAccepted(order);
   }
 
-  setAsInRealization(order: OrderDataModel) {
+  setAsInRealization(order: OrderData) {
     this.basketService.setAsInRealization(order);
   }
 
-  setAsSent(order: OrderDataModel) {
+  setAsSent(order: OrderData) {
     this.basketService.setAsSent(order);
   }
-  setAsDelivered(order: OrderDataModel) {
+  setAsDelivered(order: OrderData) {
     this.basketService.setAsDelivered(order);
   }
 }

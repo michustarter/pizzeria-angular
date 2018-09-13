@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DishModel} from '../shared/models/dish.model';
+import {Dish} from '../shared/models/dish';
 import {MenuService} from '../shared/menu.service';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
@@ -15,8 +15,8 @@ import {Subject} from 'rxjs';
 export class MenuComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
-  dishes: DishModel[];
-  basket: DishModel[];
+  dishes: Dish[];
+  basket: Dish[];
   availability: string;
 
   logged: boolean;
@@ -65,7 +65,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getDrinks();
   }
 
-  addToBasket(dish: DishModel) {
+  addToBasket(dish: Dish) {
     this.basketService.addDishToBasket(dish);
   }
 
@@ -74,11 +74,11 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   }
 
-  setAvailability(dish: DishModel) {
+  setAvailability(dish: Dish) {
     this.menuService.setAvailability(dish);
   }
 
-  getAvailability(dish: DishModel): string {
+  getAvailability(dish: Dish): string {
     if (dish.isAvailable) {
       this.availability = 'available';
     } else if (!dish.isAvailable) {
