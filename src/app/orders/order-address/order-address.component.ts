@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuService} from '../shared/menu.service';
-import {BasketService} from '../shared/basket.service';
+import {BasketService} from '../../shared/basket.service';
 import {Subscription} from 'rxjs';
-import {Dish} from '../shared/dish';
+import {DishModel} from '../../shared/models/dish.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {OrderData} from '../shared/orderData';
+import {OrderDataModel} from '../../shared/models/orderData.model';
 
 @Component({
   selector: 'app-order-address',
@@ -14,14 +13,14 @@ import {OrderData} from '../shared/orderData';
 export class OrderAddressComponent implements OnInit {
 
   sub: Subscription;
-  orderedBasket: OrderData;
-  dishes: Dish[];
+  orderedBasket: OrderDataModel;
+  dishes: DishModel[];
   dishesIds: number[];
   orderAddressForm: FormGroup;
 
   constructor(private readonly basketService: BasketService) {
     this.dishesIds = [];
-    this.orderedBasket = <OrderData>{};
+    this.orderedBasket = <OrderDataModel>{};
   }
 
   ngOnInit() {

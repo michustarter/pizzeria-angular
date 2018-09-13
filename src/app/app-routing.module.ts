@@ -1,22 +1,22 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {MenuComponent} from './menu/menu.component';
-import {MenuListComponent} from './menu-list/menu-list.component';
+import {MenuListComponent} from './menu/menu-list/menu-list.component';
 import {BasketComponent} from './basket/basket.component';
-import {OrderAddressComponent} from './order-address/order-address.component';
+import {OrderAddressComponent} from './orders/order-address/order-address.component';
 import {OrdersComponent} from './orders/orders.component';
-import {OrdersListComponent} from './orders-list/orders-list.component';
+import {OrdersListComponent} from './orders/orders-list/orders-list.component';
 import {LoginComponent} from './login/login.component';
-import {RoleGuard} from './shared/RoleGuard';
+import {RoleGuardModel} from './shared/models/RoleGuard.model';
 
 const routes: Routes = [
   {path: 'menu', component: MenuComponent},
   {path: 'login', component: LoginComponent},
   {path: 'basket', component: BasketComponent},
   {path: 'order', component: OrderAddressComponent},
-  {path: 'menu/:id', component: MenuListComponent, canActivate: [RoleGuard]},
-  {path: 'orders', component: OrdersComponent, canActivate: [RoleGuard]},
-  {path: 'orders/:id', component: OrdersListComponent, canActivate: [RoleGuard]},
+  {path: 'menu/:id', component: MenuListComponent, canActivate: [RoleGuardModel]},
+  {path: 'orders', component: OrdersComponent, canActivate: [RoleGuardModel]},
+  {path: 'orders/:id', component: OrdersListComponent, canActivate: [RoleGuardModel]},
   {path: 'login', component: LoginComponent},
 
 ];

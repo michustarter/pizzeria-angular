@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {OrderData} from '../shared/orderData';
+import {OrderDataModel} from '../shared/models/orderData.model';
 import {BasketService} from '../shared/basket.service';
 import {Router} from '@angular/router';
 
@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class OrdersComponent implements OnInit {
 
   sub: Subscription;
-  orders: OrderData[];
+  orders: OrderDataModel[];
 
   constructor(private readonly basketService: BasketService,
               private readonly router: Router) {
@@ -21,9 +21,4 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     this.sub = this.basketService.getOrders().subscribe(orders => this.orders = orders);
   }
-
-  showOrderDetail(orderId: number) {
-    this.router.navigate(['/orders', orderId]);
-  }
-
 }

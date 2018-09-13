@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {FormControl, FormGroup} from '@angular/forms';
 import {LoginService} from '../shared/login.service';
-import {User} from '../shared/user';
+import {UserModel} from '../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +11,8 @@ import {User} from '../shared/user';
 })
 export class LoginComponent implements OnInit {
 
-  users: User[];
-  admin: User;
+  users: UserModel[];
+  admin: UserModel;
   sub: Subscription;
 
   loginAdminForm = new FormGroup({
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(readonly loginService: LoginService) {
-    this.admin = <User>{};
+    this.admin = <UserModel>{};
   }
 
   ngOnInit() {
@@ -40,10 +40,4 @@ export class LoginComponent implements OnInit {
       alert('Invalid login data');
     }
   }
-
-  isLoggedIn() {
-    return this.loginService.getLoginStatus();
-  }
-
-
 }

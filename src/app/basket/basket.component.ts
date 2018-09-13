@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Dish} from '../shared/dish';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {DishModel} from '../shared/models/dish.model';
 import {BasketService} from '../shared/basket.service';
 import {Subject} from 'rxjs';
-import {MenuService} from '../shared/menu.service';
 
 @Component({
   selector: 'app-basket',
@@ -11,14 +10,15 @@ import {MenuService} from '../shared/menu.service';
 })
 export class BasketComponent implements OnInit {
 
-  id = 0;
-  basket: Dish[] = [];
+  id: number;
+  basket: DishModel[];
   price: number;
-  @Output() deletes = new EventEmitter<Dish[]>();
-  private destroy$: Subject<void> = new Subject<void>();
+  @Output() deletes = new EventEmitter<DishModel[]>();
 
   constructor(private readonly basketService: BasketService) {
+    this.id = 0;
     this.price = 0;
+    this.basket = [];
   }
 
   ngOnInit() {

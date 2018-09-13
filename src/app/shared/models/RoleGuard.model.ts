@@ -1,9 +1,9 @@
 import {CanActivate} from '@angular/router';
 import {Injectable} from '@angular/core';
-import {LoginService} from './login.service';
+import {LoginService} from '../login.service';
 
 @Injectable()
-export class RoleGuard implements CanActivate {
+export class RoleGuardModel implements CanActivate {
 
   constructor(private readonly loginService: LoginService) {
   }

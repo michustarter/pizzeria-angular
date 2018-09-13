@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output, AfterViewChecked, OnDestroy} from '@angular/core';
-import {Dish} from '../shared/dish';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {DishModel} from '../shared/models/dish.model';
 import {MenuService} from '../shared/menu.service';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
@@ -15,8 +15,8 @@ import {Subject} from 'rxjs';
 export class MenuComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
-  dishes: Dish[];
-  basket: Dish[];
+  dishes: DishModel[];
+  basket: DishModel[];
   availability: string;
 
   logged: boolean;
@@ -36,7 +36,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getDishes();
     this.basket = [];
     this.logged = this.loginService.getLoginStatus();
-
   }
 
   getPizza(event: Event) {
@@ -66,7 +65,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getDrinks();
   }
 
-  addToBasket(dish: Dish) {
+  addToBasket(dish: DishModel) {
     this.basketService.addDishToBasket(dish);
   }
 
@@ -75,11 +74,11 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   }
 
-  setAvailability(dish: Dish) {
+  setAvailability(dish: DishModel) {
     this.menuService.setAvailability(dish);
   }
 
-  getAvailability(dish: Dish): string {
+  getAvailability(dish: DishModel): string {
     if (dish.isAvailable) {
       this.availability = 'available';
     } else if (!dish.isAvailable) {

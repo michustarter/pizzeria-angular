@@ -129,6 +129,25 @@
       "orderStage": "accepted",
       "date": "2018-09-13T06:41:33.363Z",
       "id": 4
+    },
+    {
+      "firstName": "Michał",
+      "lastName": "Michał",
+      "phoneNumber": "342534567894",
+      "mail": "michalcmih",
+      "city": "mifgjhfhdh",
+      "street": "fgkrjtgnv",
+      "local": "45",
+      "floor": 8,
+      "dishIds": [
+        3,
+        4,
+        7,
+        5
+      ],
+      "orderStage": "accepted",
+      "date": "2018-09-13T10:17:42.131Z",
+      "id": 5
     }
   ],
   "users": [

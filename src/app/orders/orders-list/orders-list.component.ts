@@ -1,9 +1,8 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {OrderData} from '../shared/orderData';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {OrderDataModel} from '../../shared/models/orderData.model';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
-import {BasketService} from '../shared/basket.service';
-import {MenuService} from '../shared/menu.service';
+import {BasketService} from '../../shared/basket.service';
 
 @Component({
   selector: 'app-orders-list',
@@ -12,8 +11,8 @@ import {MenuService} from '../shared/menu.service';
 })
 export class OrdersListComponent implements OnInit, OnDestroy {
 
-  orders: OrderData[];
-  order: OrderData;
+  orders: OrderDataModel[];
+  order: OrderDataModel;
   sub: Subscription;
   dishNames: string[];
   orderStage: string;
@@ -34,22 +33,22 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  getOrderStage(order: OrderData): string {
+  getOrderStage(order: OrderDataModel): string {
     return order.orderStage;
   }
 
-  setAsAccepted(order: OrderData) {
+  setAsAccepted(order: OrderDataModel) {
     this.basketService.setAsAccepted(order);
   }
 
-  setAsInRealization(order: OrderData) {
+  setAsInRealization(order: OrderDataModel) {
     this.basketService.setAsInRealization(order);
   }
 
-  setAsSent(order: OrderData) {
+  setAsSent(order: OrderDataModel) {
     this.basketService.setAsSent(order);
   }
-  setAsDelivered(order: OrderData) {
+  setAsDelivered(order: OrderDataModel) {
     this.basketService.setAsDelivered(order);
   }
 }

@@ -1,4 +1,4 @@
-export interface OrderData {
+export interface OrderDataModel {
 id: number;
 dishIds: number[];
 orderStage: string;

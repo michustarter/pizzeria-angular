@@ -3,7 +3,7 @@ import {TestBed, inject} from '@angular/core/testing';
 import {BasketService} from './basket.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
-import {Dish} from './dish';
+import {DishModel} from './models/dish.model';
 
 describe('BasketService', () => {
   beforeEach(() => {
@@ -18,10 +18,10 @@ describe('BasketService', () => {
   }));
 
   it('should count total price of dishes in basket', inject([BasketService], (service: BasketService) => {
-    const dish1 = <Dish>{
+    const dish1 = <DishModel>{
         price: 10
       },
-      dish2 = <Dish>{
+      dish2 = <DishModel>{
         price: 2
       };
 
@@ -32,8 +32,8 @@ describe('BasketService', () => {
   }));
 
   it('should remove dish from basket', inject([BasketService], (service: BasketService) => {
-    const dish1 = <Dish>{},
-      dish2 = <Dish>{};
+    const dish1 = <DishModel>{},
+      dish2 = <DishModel>{};
 
     service.addDishToBasket(dish1);
     service.addDishToBasket(dish1);
@@ -45,7 +45,7 @@ describe('BasketService', () => {
   }));
 
   it('should add dish to basket', inject([BasketService], (service: BasketService) => {
-    const dish = <Dish>{};
+    const dish = <DishModel>{};
 
     service.addDishToBasket(dish);
     service.addDishToBasket(dish);
@@ -54,8 +54,8 @@ describe('BasketService', () => {
   }));
 
   it('should get dishes form basket', inject([BasketService], (service: BasketService) => {
-    const dish1 = <Dish>{},
-      dish2 = <Dish>{};
+    const dish1 = <DishModel>{},
+      dish2 = <DishModel>{};
 
     service.addDishToBasket(dish1);
     service.addDishToBasket(dish1);
