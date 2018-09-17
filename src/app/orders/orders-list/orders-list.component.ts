@@ -12,11 +12,11 @@ import {BasketService} from '../../shared/services/basket.service';
 
 export class OrdersListComponent implements OnInit, OnDestroy {
 
-  orders: OrderData[];
-  order: OrderData;
-  sub: Subscription;
-  dishNames: string[];
   orderStage: string;
+  dishNames: string[];
+  order: OrderData;
+  orders: OrderData[];
+  sub: Subscription;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly basketService: BasketService) {
@@ -30,27 +30,27 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     this.sub = this.basketService.getOrder(+id).subscribe(order => this.order = order);
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
-
   getOrderStage(order: OrderData): string {
     return order.orderStage;
   }
 
-  setAsAccepted(order: OrderData) {
+  setAsAccepted(order: OrderData): void {
     this.basketService.setAsAccepted(order);
   }
 
-  setAsInRealization(order: OrderData) {
+  setAsInRealization(order: OrderData): void {
     this.basketService.setAsInRealization(order);
   }
 
-  setAsSent(order: OrderData) {
+  setAsSent(order: OrderData): void {
     this.basketService.setAsSent(order);
   }
 
-  setAsDelivered(order: OrderData) {
+  setAsDelivered(order: OrderData): void {
     this.basketService.setAsDelivered(order);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

@@ -11,25 +11,25 @@ export class LoginService {
 
   isLoggedIn = false;
 
-  constructor(private readonly http: HttpClient,
-              private readonly route: Router) {
+  constructor(private readonly route: Router,
+              private readonly http: HttpClient) {
   }
 
   getAdmin(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/users');
   }
 
-  loginAdmin() {
+  loginAdmin(): void {
     this.isLoggedIn = true;
     this.route.navigate(['/']);
   }
 
-  logout() {
+  logout(): void {
     this.isLoggedIn = false;
     this.route.navigate(['/']);
   }
 
-  getLoginStatus() {
+  getLoginStatus(): boolean {
     return this.isLoggedIn;
   }
 }

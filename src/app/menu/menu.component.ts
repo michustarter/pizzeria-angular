@@ -37,7 +37,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getDishes();
   }
 
-  getPizza(event: Event) {
+  getPizza(event: Event): void {
     this.menuService.dishes$.pipe(
       takeUntil(this.destroy$)
     ).subscribe(
@@ -46,7 +46,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getPizza();
   }
 
-  getPasta(event: Event) {
+  getPasta(event: Event): void {
     this.menuService.dishes$.pipe(
       takeUntil(this.destroy$)
     ).subscribe(
@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getPasta();
   }
 
-  getDrinks(event: Event) {
+  getDrinks(event: Event): void {
     this.menuService.dishes$.pipe(
       takeUntil(this.destroy$)
     ).subscribe(
@@ -64,16 +64,15 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.getDrinks();
   }
 
-  addToBasket(dish: Dish) {
+  addToBasket(dish: Dish): void {
     this.basketService.addDishToBasket(dish);
   }
 
-  showDetail(dishId: number) {
+  showDetail(dishId: number): void {
     this.router.navigate(['/menu', dishId]);
-
   }
 
-  setAvailability(dish: Dish) {
+  setAvailability(dish: Dish): void {
     this.menuService.setAvailability(dish);
   }
 
@@ -86,7 +85,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     return this.availability;
   }
 
-  isLoggedIn() {
+  isLoggedIn(): boolean {
     return this.logged;
   }
 

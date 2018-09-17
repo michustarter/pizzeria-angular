@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {OrderData} from '../shared/models/orderData';
 import {BasketService} from '../shared/services/basket.service';
@@ -8,7 +8,7 @@ import {BasketService} from '../shared/services/basket.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent implements OnInit, OnDestroy {
 
   sub: Subscription;
   orders: OrderData[];
@@ -18,5 +18,9 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.basketService.getOrders().subscribe(orders => this.orders = orders);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

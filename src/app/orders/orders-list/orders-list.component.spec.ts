@@ -15,7 +15,9 @@ describe('OrdersListComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      declarations: [OrdersListComponent],
+      declarations: [
+        OrdersListComponent
+      ],
       providers: [
         BasketService
       ]

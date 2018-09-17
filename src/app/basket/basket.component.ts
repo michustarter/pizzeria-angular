@@ -24,7 +24,7 @@ export class BasketComponent implements OnInit {
     this.basket = this.basketService.getDishesFromBasket();
   }
 
-  removeDish(id: number) {
+  removeDish(id: number): void {
     this.basketService.removeFromBasket(id);
   }
 

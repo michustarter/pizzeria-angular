@@ -37,7 +37,7 @@ export class MenuService {
       .subscribe(dishes => this.dishes$.next(dishes));
   }
 
-  setAvailability(dish: Dish) {
+  setAvailability(dish: Dish): void {
     dish.isAvailable = !dish.isAvailable;
     this.httpClient.put<Dish>('http://localhost:3000/dishes/' + dish.id, dish)
       .subscribe(res => this.getDishes());

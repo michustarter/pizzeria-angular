@@ -13,11 +13,11 @@ import {OrderData} from '../../shared/models/orderData';
 
 export class OrderAddressComponent implements OnInit {
 
-  sub: Subscription;
-  orderedBasket: OrderData;
   dishes: Dish[];
+  sub: Subscription;
   dishesIds: number[];
   orderAddress: FormGroup;
+  orderedBasket: OrderData;
 
   constructor(private readonly basketService: BasketService) {
     this.dishesIds = [];

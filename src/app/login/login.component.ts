@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject, Subscription} from 'rxjs';
+import {Subject} from 'rxjs';
 import {FormControl, FormGroup} from '@angular/forms';
 import {LoginService} from '../shared/services/login.service';
 import {User} from '../shared/models/user';
-import {takeUntil} from "rxjs/operators";
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',

@@ -37,7 +37,7 @@ export class BasketService {
     this.basket.push(dish);
   }
 
-  getDishesFromBasket() {
+  getDishesFromBasket(): Dish[] {
     return this.basket;
   }
 
@@ -53,25 +53,25 @@ export class BasketService {
     return this.httpClient.get <OrderData[]>('http://localhost:3000/orders');
   }
 
-  setAsAccepted(order: OrderData) {
+  setAsAccepted(order: OrderData): void {
     order.orderStage = 'accepted';
     this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
       .subscribe();
   }
 
-  setAsInRealization(order: OrderData) {
+  setAsInRealization(order: OrderData): void {
     order.orderStage = 'in realization';
     this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
       .subscribe();
   }
 
-  setAsSent(order: OrderData) {
+  setAsSent(order: OrderData): void {
     order.orderStage = 'sent';
     this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
       .subscribe();
   }
 
-  setAsDelivered(order: OrderData) {
+  setAsDelivered(order: OrderData): void {
     order.orderStage = 'delivered';
     this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
       .subscribe();

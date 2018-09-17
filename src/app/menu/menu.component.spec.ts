@@ -8,7 +8,6 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {Dish} from '../shared/models/dish';
 
-
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;

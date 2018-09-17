@@ -8,7 +8,6 @@
     <button class="dishButton" *ngIf="isLoggedIn()" type="button" routerLink="/orders">Orders list</button>
   </div>
   <section>
-
   </section>
   <div class="menuTable">
     <table class="menu">
@@ -20,7 +19,6 @@
         <th *ngIf="!isLoggedIn()">Add to basket</th>
         <th *ngIf="isLoggedIn()">Description</th>
         <th *ngIf="isLoggedIn()">Availability</th>
-        <!--*ngIf="isLoggedIn()"-->
       </tr>
       <tr *ngFor="let dish of dishes">
         <td *ngIf="isLoggedIn() || (!isLoggedIn() && dish.isAvailable)">{{dish.id}}</td>
