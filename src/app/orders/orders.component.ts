@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {OrderData} from '../shared/models/orderData';
-import {BasketService} from '../shared/basket.service';
+import {BasketService} from '../shared/services/basket.service';
 
 @Component({
   selector: 'app-orders',

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Dish} from '../shared/models/dish';
-import {BasketService} from '../shared/basket.service';
+import {BasketService} from '../shared/services/basket.service';
 
 @Component({
   selector: 'app-basket',

@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from '../shared/models/dish';
-import {MenuService} from '../shared/menu.service';
+import {MenuService} from '../shared/services/menu.service';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
-import {BasketService} from '../shared/basket.service';
-import {LoginService} from '../shared/login.service';
+import {BasketService} from '../shared/services/basket.service';
+import {LoginService} from '../shared/services/login.service';
 import {Subject} from 'rxjs';
 
 @Component({
@@ -18,13 +18,14 @@ export class MenuComponent implements OnInit, OnDestroy {
   dishes: Dish[];
   basket: Dish[];
   availability: string;
-
   logged: boolean;
 
   constructor(private readonly router: Router,
               private readonly menuService: MenuService,
               private readonly loginService: LoginService,
               private readonly basketService: BasketService) {
+    this.basket = [];
+    this.logged = this.loginService.getLoginStatus();
   }
 
   ngOnInit() {
@@ -34,8 +35,6 @@ export class MenuComponent implements OnInit, OnDestroy {
       dishes => this.dishes = dishes
     );
     this.menuService.getDishes();
-    this.basket = [];
-    this.logged = this.loginService.getLoginStatus();
   }
 
   getPizza(event: Event) {
@@ -77,7 +76,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   setAvailability(dish: Dish) {
     this.menuService.setAvailability(dish);
   }
-
 
   getAvailability(dish: Dish): string {
     if (dish.isAvailable) {

@@ -2,7 +2,7 @@ import {TestBed, inject} from '@angular/core/testing';
 import {BasketService} from './basket.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
-import {Dish} from './models/dish';
+import {Dish} from '../models/dish';
 
 describe('BasketService', () => {
   beforeEach(() => {

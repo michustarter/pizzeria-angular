@@ -4,7 +4,7 @@ import {BasketComponent} from './basket.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
-import {BasketService} from '../shared/basket.service';
+import {BasketService} from '../shared/services/basket.service';
 
 class ActivatedRouteMock {
   snapshot: {

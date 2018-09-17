@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from '../../shared/models/dish';
 import {ActivatedRoute} from '@angular/router';
-import {MenuService} from '../../shared/menu.service';
+import {MenuService} from '../../shared/services/menu.service';
 import {Subscription} from 'rxjs';
 
 @Component({

@@ -3,8 +3,8 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MenuService} from './shared/menu.service';
-import {LoginService} from './shared/login.service';
+import {MenuService} from './shared/services/menu.service';
+import {LoginService} from './shared/services/login.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;

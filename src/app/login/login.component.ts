@@ -1,19 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subject, Subscription} from 'rxjs';
 import {FormControl, FormGroup} from '@angular/forms';
-import {LoginService} from '../shared/login.service';
+import {LoginService} from '../shared/services/login.service';
 import {User} from '../shared/models/user';
+import {takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
-  user: User[];
   admin: User;
-  sub: Subscription;
+  user: User[];
+  private readonly destroy$ = new Subject();
 
   loginAdminForm = new FormGroup({
     name: new FormControl(),
@@ -25,8 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sub = this.loginService.getAdmin()
-      .subscribe(admin => this.user = admin);
+    this.loginService.getAdmin()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => this.user = res);
   }
 
   loginAdmin(): void {
@@ -39,5 +41,10 @@ export class LoginComponent implements OnInit {
     } else {
       alert('Invalid login data');
     }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

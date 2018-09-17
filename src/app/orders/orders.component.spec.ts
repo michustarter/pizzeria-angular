@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {OrdersComponent} from './orders.component';
-import {BasketService} from '../shared/basket.service';
+import {BasketService} from '../shared/services/basket.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
 

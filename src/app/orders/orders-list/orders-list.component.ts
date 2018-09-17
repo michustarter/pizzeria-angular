@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {OrderData} from '../../shared/models/orderData';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
-import {BasketService} from '../../shared/basket.service';
+import {BasketService} from '../../shared/services/basket.service';
 
 @Component({
   selector: 'app-orders-list',
