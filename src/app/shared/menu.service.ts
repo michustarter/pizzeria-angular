@@ -14,7 +14,8 @@ export class MenuService {
   }
 
   getDishes() {
-    return this.httpClient.get<Dish[]>('http://localhost:3000/dishes').subscribe(dishes => this.dishes$.next(dishes));
+    return this.httpClient.get<Dish[]>('http://localhost:3000/dishes')
+      .subscribe(dishes => this.dishes$.next(dishes));
   }
 
   getDish(id: number): Observable<Dish> {
@@ -22,15 +23,18 @@ export class MenuService {
   }
 
   getPizza(): void {
-    this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=pizza').subscribe(dishes => this.dishes$.next(dishes));
+    this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=pizza')
+      .subscribe(dishes => this.dishes$.next(dishes));
   }
 
   getPasta(): void {
-    this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=spagetti').subscribe(dishes => this.dishes$.next(dishes));
+    this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=spagetti')
+      .subscribe(dishes => this.dishes$.next(dishes));
   }
 
   getDrinks(): void {
-    this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=drink').subscribe(dishes => this.dishes$.next(dishes));
+    this.httpClient.get<Dish[]>('http://localhost:3000/dishes/?type=drink')
+      .subscribe(dishes => this.dishes$.next(dishes));
   }
 
   setAvailability(dish: Dish) {

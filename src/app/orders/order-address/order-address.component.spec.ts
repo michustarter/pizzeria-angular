@@ -17,7 +17,9 @@ describe('OrderAddressComponent', () => {
         RouterTestingModule,
         ReactiveFormsModule
       ],
-      declarations: [OrderAddressComponent, BasketComponent],
+      declarations: [
+        OrderAddressComponent,
+        BasketComponent],
       providers: [BasketService]
     })
       .compileComponents();

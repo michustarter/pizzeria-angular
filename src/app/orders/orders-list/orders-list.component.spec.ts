@@ -3,9 +3,7 @@ import {OrdersListComponent} from './orders-list.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {BasketService} from '../../shared/basket.service';
 import {HttpClientModule} from '@angular/common/http';
-import {MenuService} from "../../shared/menu.service";
-import {OrderData} from "../../shared/models/orderData";
-
+import {OrderData} from '../../shared/models/orderData';
 
 describe('OrdersListComponent', () => {
   let component: OrdersListComponent;
@@ -34,6 +32,7 @@ describe('OrdersListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('should called setAsAccepted method', () => {
     const order: OrderData = <OrderData>{};
 
@@ -77,11 +76,11 @@ describe('OrdersListComponent', () => {
 
     expect(setAsDelivered).toHaveBeenCalledWith(order);
   });
+
   it('should return order stage as \'accepted\'', () => {
     const order: OrderData = <OrderData>{
       orderStage: 'sent'
     };
-
     expect(component.getOrderStage(order)).toEqual('sent');
   });
 });

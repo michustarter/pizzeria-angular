@@ -9,6 +9,7 @@ import {BasketService} from '../../shared/basket.service';
   templateUrl: './orders-list.component.html',
   styleUrls: ['./orders-list.component.scss']
 })
+
 export class OrdersListComponent implements OnInit, OnDestroy {
 
   orders: OrderData[];
@@ -48,6 +49,7 @@ export class OrdersListComponent implements OnInit, OnDestroy {
   setAsSent(order: OrderData) {
     this.basketService.setAsSent(order);
   }
+
   setAsDelivered(order: OrderData) {
     this.basketService.setAsDelivered(order);
   }

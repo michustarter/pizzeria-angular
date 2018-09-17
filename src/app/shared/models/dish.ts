@@ -6,4 +6,3 @@ export interface Dish {
   type: string;
   price: number;
 }
-

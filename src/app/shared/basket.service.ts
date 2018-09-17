@@ -55,21 +55,25 @@ export class BasketService {
 
   setAsAccepted(order: OrderData) {
     order.orderStage = 'accepted';
-    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
+      .subscribe();
   }
 
   setAsInRealization(order: OrderData) {
     order.orderStage = 'in realization';
-    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
+      .subscribe();
   }
 
   setAsSent(order: OrderData) {
     order.orderStage = 'sent';
-    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
+      .subscribe();
   }
 
   setAsDelivered(order: OrderData) {
     order.orderStage = 'delivered';
-    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order).subscribe();
+    this.httpClient.put<OrderData>('http://localhost:3000/orders/' + order.id, order)
+      .subscribe();
   }
 }

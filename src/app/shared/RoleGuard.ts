@@ -11,5 +11,4 @@ export class RoleGuard implements CanActivate {
   canActivate(): boolean {
     return this.loginService.isLoggedIn;
   }
-
 }

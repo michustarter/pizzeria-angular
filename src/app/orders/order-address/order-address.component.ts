@@ -10,6 +10,7 @@ import {OrderData} from '../../shared/models/orderData';
   templateUrl: './order-address.component.html',
   styleUrls: ['./order-address.component.scss']
 })
+
 export class OrderAddressComponent implements OnInit {
 
   sub: Subscription;

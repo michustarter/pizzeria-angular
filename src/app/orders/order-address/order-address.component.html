@@ -2,7 +2,6 @@
 </app-basket>
 <form [formGroup]="orderAddress" id="address-form">
   <table class="orderTable">
-
     <tr>
       <td>First name</td>
       <td><input type="text" formControlName="firstName"></td>
@@ -31,8 +30,3 @@
   <button class="order" type="submit" [disabled]="!orderAddress.valid" (click)="submitOrder()">☑ submit order
   </button>
 </form>
-
-
-
-
-
