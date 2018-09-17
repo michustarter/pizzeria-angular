@@ -1,6 +1,6 @@
 <app-basket>
 </app-basket>
-<form [formGroup]="orderAddressForm" id="address-form">
+<form [formGroup]="orderAddress" id="address-form">
   <table class="orderTable">
 
     <tr>
@@ -28,7 +28,7 @@
       <td><input type="number" formControlName="floor"></td>
     </tr>
   </table>
-  <button class="order" type="submit" [disabled]="!orderAddressForm.valid" (click)="submitOrder()">☑ submit order
+  <button class="order" type="submit" [disabled]="!orderAddress.valid" (click)="submitOrder()">☑ submit order
   </button>
 </form>
 

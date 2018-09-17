@@ -11,7 +11,7 @@ import {User} from '../shared/models/user';
 })
 export class LoginComponent implements OnInit {
 
-  users: User[];
+  user: User[];
   admin: User;
   sub: Subscription;
 
@@ -26,13 +26,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.loginService.getAdmin()
-      .subscribe(admin => this.users = admin);
+      .subscribe(admin => this.user = admin);
   }
 
   loginAdmin(): void {
     this.admin.name = this.loginAdminForm.get('name').value;
     this.admin.password = this.loginAdminForm.get('password').value;
-    if (this.users.find(
+    if (this.user.find(
       admin => admin.name === this.admin.name
         && admin.password === this.admin.password)) {
       this.loginService.loginAdmin();

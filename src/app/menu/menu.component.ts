@@ -78,6 +78,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuService.setAvailability(dish);
   }
 
+
   getAvailability(dish: Dish): string {
     if (dish.isAvailable) {
       this.availability = 'available';

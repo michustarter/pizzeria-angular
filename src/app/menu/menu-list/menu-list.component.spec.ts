@@ -1,8 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {MenuListComponent} from './menu-list.component';
-import {MenuService} from "../../shared/menu.service";
-import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
-import {RouterTestingModule} from "@angular/router/testing";
+import {MenuService} from '../../shared/menu.service';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('MenuListComponent', () => {
   let component: MenuListComponent;

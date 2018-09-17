@@ -14,7 +14,7 @@ import {OrdersListComponent} from './orders/orders-list/orders-list.component';
 import {OrdersComponent} from './orders/orders.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './shared/login.service';
-import {RoleGuard} from './shared/models/RoleGuard';
+import {RoleGuard} from './shared/RoleGuard';
 
 @NgModule({
   declarations: [

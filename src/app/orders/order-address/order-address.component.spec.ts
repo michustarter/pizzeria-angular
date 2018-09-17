@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { OrderAddressComponent } from './order-address.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {OrderAddressComponent} from './order-address.component';
 import {BasketComponent} from '../../basket/basket.component';
 import {BasketService} from '../../shared/basket.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -17,10 +17,10 @@ describe('OrderAddressComponent', () => {
         RouterTestingModule,
         ReactiveFormsModule
       ],
-      declarations: [ OrderAddressComponent, BasketComponent ],
+      declarations: [OrderAddressComponent, BasketComponent],
       providers: [BasketService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

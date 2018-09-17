@@ -7,7 +7,7 @@ import {OrderAddressComponent} from './orders/order-address/order-address.compon
 import {OrdersComponent} from './orders/orders.component';
 import {OrdersListComponent} from './orders/orders-list/orders-list.component';
 import {LoginComponent} from './login/login.component';
-import {RoleGuard} from './shared/models/RoleGuard';
+import {RoleGuard} from './shared/RoleGuard';
 
 const routes: Routes = [
   {path: 'menu', component: MenuComponent},

@@ -25,9 +25,8 @@ export class BasketComponent implements OnInit {
     this.basket = this.basketService.getDishesFromBasket();
   }
 
-  removeDish(id: number, event: Event) {
+  removeDish(id: number) {
     this.basketService.removeFromBasket(id);
-    event.stopPropagation();
   }
 
   countPrice(): number {

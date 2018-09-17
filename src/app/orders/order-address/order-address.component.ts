@@ -16,7 +16,7 @@ export class OrderAddressComponent implements OnInit {
   orderedBasket: OrderData;
   dishes: Dish[];
   dishesIds: number[];
-  orderAddressForm: FormGroup;
+  orderAddress: FormGroup;
 
   constructor(private readonly basketService: BasketService) {
     this.dishesIds = [];
@@ -27,7 +27,7 @@ export class OrderAddressComponent implements OnInit {
     this.dishes = this.basketService.getDishesFromBasket();
     this.dishes.forEach(dish => this.dishesIds.push(dish.id));
 
-    this.orderAddressForm = new FormGroup({
+    this.orderAddress = new FormGroup({
       'firstName': new FormControl('', [
         Validators.required,
         Validators.minLength(5)
@@ -65,10 +65,10 @@ export class OrderAddressComponent implements OnInit {
   }
 
   submitOrder(): void {
-    this.orderedBasket = this.orderAddressForm.value;
+    this.orderedBasket = this.orderAddress.value;
+    this.orderedBasket.date = new Date();
     this.orderedBasket.dishIds = this.dishesIds;
     this.orderedBasket.orderStage = 'accepted';
-    this.orderedBasket.date = new Date();
     this.sub = this.basketService.submitOrder(this.orderedBasket).subscribe();
     alert('Order accepted');
   }
