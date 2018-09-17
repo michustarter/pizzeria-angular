@@ -14,10 +14,8 @@ export class MenuListComponent implements OnInit, OnDestroy {
   dish: Dish;
   sub: Subscription;
 
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly menuService: MenuService,
-  ) {
+  constructor(private readonly route: ActivatedRoute,
+              private readonly menuService: MenuService) {
   }
 
   ngOnInit() {
@@ -30,5 +28,4 @@ export class MenuListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-
 }

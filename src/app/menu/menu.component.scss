@@ -1,52 +1,55 @@
-.menu{
+.menu {
   flex-direction: column;
   display: inline-flex;
-  border-collapse:separate;
-  border-radius:10px;
-  -moz-border-radius:10px;
+  border-collapse: separate;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
   align-content: normal;
   justify-content: flex-start;
- width: auto;
+  width: auto;
   font-family: Consolas;
 }
-th{
-  border-left:orangered 1px;
-  border-top:orangered 1px;
+
+th {
+  border-left: orangered 1px;
+  border-top: orangered 1px;
   background-color: orangered;
   color: white;
   width: auto;
 }
 
-tr{
-  border-left:orangered 1px;
-  border-top:orangered 1px;
+tr {
+  border-left: orangered 1px;
+  border-top: orangered 1px;
   background-color: antiquewhite;
   width: auto;
 }
-.btn{
+
+.btn {
   background-color: antiquewhite;
   width: 50px;
 }
 
-.menuTable{
+.menuTable {
   flex-direction: column;
   display: inline-flex;
-  border-collapse:separate;
-  border:solid red 3px;
-  border-radius:10px;
-  -moz-border-radius:10px;
+  border-collapse: separate;
+  border: solid red 3px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
   align-content: normal;
   justify-content: flex-start;
   width: auto;
   font-family: Consolas;
 }
-.basket{
+
+.basket {
   float: left;
   width: 20%;
   display: inline-flex;
 }
 
-.add,.detail,.dishButton, .availability {
+.add, .detail, .dishButton, .availability {
   background-color: #4CAF50;
   border: none;
   color: white;

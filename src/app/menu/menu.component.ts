@@ -21,10 +21,10 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   logged: boolean;
 
-  constructor(private readonly menuService: MenuService,
-              private readonly basketService: BasketService,
+  constructor(private readonly router: Router,
+              private readonly menuService: MenuService,
               private readonly loginService: LoginService,
-              private readonly router: Router) {
+              private readonly basketService: BasketService) {
   }
 
   ngOnInit() {

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {OrderData} from '../shared/models/orderData';
 import {BasketService} from '../shared/basket.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -14,8 +13,7 @@ export class OrdersComponent implements OnInit {
   sub: Subscription;
   orders: OrderData[];
 
-  constructor(private readonly basketService: BasketService,
-              private readonly router: Router) {
+  constructor(private readonly basketService: BasketService) {
   }
 
   ngOnInit() {

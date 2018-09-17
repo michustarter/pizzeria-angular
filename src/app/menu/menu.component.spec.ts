@@ -120,5 +120,4 @@ describe('MenuComponent', () => {
 
     expect(component.isLoggedIn()).toBeFalsy();
   });
-
 });

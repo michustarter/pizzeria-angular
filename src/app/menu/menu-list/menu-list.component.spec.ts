@@ -10,13 +10,15 @@ describe('MenuListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuListComponent ],
+      declarations: [MenuListComponent],
       providers: [
         MenuService,
       ],
-      imports: [HttpClientModule, RouterTestingModule]
+      imports: [
+        HttpClientModule,
+        RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

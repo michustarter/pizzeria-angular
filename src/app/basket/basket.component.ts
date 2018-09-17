@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Dish} from '../shared/models/dish';
 import {BasketService} from '../shared/basket.service';
-import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-basket',
