@@ -18,7 +18,6 @@ const routes: Routes = [
   {path: 'orders', component: OrdersComponent, canActivate: [RoleGuard]},
   {path: 'orders/:id', component: OrdersListComponent, canActivate: [RoleGuard]},
   {path: 'login', component: LoginComponent},
-
 ];
 
 @NgModule({

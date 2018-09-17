@@ -42,5 +42,6 @@ import {RoleGuard} from './shared/RoleGuard';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }

@@ -4,7 +4,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MenuService} from './shared/menu.service';
-import {LoginService} from "./shared/login.service";
+import {LoginService} from './shared/login.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;

@@ -11,9 +11,9 @@ import {LoginService} from './shared/login.service';
 export class AppComponent {
   title = 'pizza-angular';
 
-  constructor(private readonly menuService: MenuService,
-              private readonly loginService: LoginService,
-              private  router: Router) {
+  constructor(private  router: Router,
+              private readonly menuService: MenuService,
+              private readonly loginService: LoginService) {
   }
 
   goToMenu() {
